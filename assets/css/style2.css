@@ -1,0 +1,337 @@
+/*-----------------------------------*\
+  Global Custom Properties
+\*-----------------------------------*/
+:root {
+    --rich-black-fogra-29: hsl(222, 44%, 8%);
+    --middle-blue-green_40: hsla(174, 64%, 71%, 0.4);
+    --midnight-green: hsl(186, 100%, 19%);
+    --midnight-green_a25: hsla(186, 100%, 19%, 0.25);
+    --independece: hsl(236, 14%, 39%);
+    --verdigris: hsl(182, 100%, 35%);
+    --ming: hsl(186, 72%, 24%);
+    --space-cadet: hsla(226, 45%, 24%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --alice-blue: hsl(187, 25%, 94%);
+    --gray-web: hsl(0, 0%, 50%);
+    --gainsboro: hsl(0, 0%, 87%);
+    --white: hsl(0, 0%, 100%);
+    --white_a20: hsla(0, 0%, 100%, 0.2);
+    --white_a10: hsla(0, 0%, 100%, 0.1);
+    --black: hsl(0, 0%, 0%);
+    --ff-oswald: 'Oswald', sans-serif;
+    --ff-rubik: 'Rubik', sans-serif;
+    --headline-lg: 5rem;
+    --headline-md: 3rem;
+    --headline-sm: 2rem;
+    --title-lg: 1.8rem;
+    --title-md: 1.5rem;
+    --title-sm: 1.4rem;
+    --fw-500: 500;
+    --fw-700: 700;
+    --section-padding: 120px;
+    --shadow-1: 0px 2px 20px hsla(209, 36%, 72%, 0.2);
+    --shadow-2: 0 4px 16px hsla(0, 0%, 0%, 0.06);
+    --radius-circle: 50%;
+    --radius-12: 12px;
+    --radius-6: 6px;
+    --radius-4: 4px;
+    --transition-1: 0.25s ease;
+    --transition-2: 0.5s ease;
+    --transition-3: 1s ease;
+    --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+    --cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
+}
+
+/*-----------------------------------*\
+  Reset and Base Styles
+\*-----------------------------------*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul {
+    padding-left: 1rem;
+    margin-top: 1rem;
+  }
+  
+  li {
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+  }
+
+li {
+    list-style: none;
+}
+
+a,
+img,
+span,
+time,
+input,
+button,
+ion-icon {
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    height: auto;
+}
+
+input,
+button {
+    background: none;
+    border: none;
+    font: inherit;
+}
+
+input {
+    width: 100%;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+ion-icon {
+    pointer-events: none;
+}
+
+address {
+    font-style: normal;
+}
+
+html {
+    font-size: 10px;
+    font-family: var(--ff-rubik);
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--ff-rubik);
+    background-color: var(--gainsboro);
+    color: var(--space-cadet);
+    line-height: 1.6;
+    padding: 0 2rem;
+  }
+  
+  nav {
+    background-color: var(--rich-black-fogra-29);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  nav li {
+    margin: 0 1rem;
+  }
+  
+  nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: var(--fw-700);
+    transition: color 0.3s;
+  }
+  
+  nav a:hover {
+    color: var(--verdigris);
+  }
+  
+  /* Style headings and main title */
+  h1, h2 {
+    font-family: var(--ff-oswald);
+    color: var(--midnight-green);
+  }
+  
+  h1 {
+    font-size: var(--headline-lg);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: var(--headline-md);
+    margin-top: 2rem;
+  }
+
+/*-----------------------------------*\
+  Reusable Styles
+\*-----------------------------------*/
+.container {
+    padding-inline: 16px;
+}
+
+.headline-lg,
+.headline-md,
+.headline-sm {
+    font-family: var(--ff-oswald);
+    line-height: 1.3;
+    color: var(--midnight-green);
+}
+
+.headline-lg {
+    font-size: var(--headline-lg);
+    color: var(--white);
+    font-weight: var(--fw-500);
+}
+
+.headline-md {
+    font-size: var(--headline-md);
+    font-weight: var(--fw-700);
+}
+
+.headline-sm {
+    font-size: var(--headline-sm);
+}
+
+.title-lg,
+.title-md,
+.title-sm {
+    font-weight: var(--fw-500);
+}
+
+.title-lg {
+    font-size: var(--title-lg);
+}
+
+.title-md {
+    font-size: var(--title-md);
+}
+
+.title-sm {
+    font-size: var(--title-sm);
+}
+
+.btn-cta {
+    background-color: var(--verdigris);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    font-size: var(--title-md);
+    display: inline-block;
+    border-radius: var(--radius-6);
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    margin-top: 2rem;
+    text-decoration: none; /* Assuming it's a link */
+  }
+  
+  .btn-cta:hover {
+    background-color: var(--midnight-green);
+    transform: translateY(-0.25rem);
+  }
+
+/* Specific Section Styles */
+section {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-6);
+    box-shadow: var(--shadow-1);
+    margin-bottom: 1rem;
+  }
+
+/* Header Styles */
+.header {
+    background-color: var(--rich-black-fogra-29);
+    color: var(--white);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: var(--shadow-1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    color: var(--white);
+    font-weight: var(--fw-500);
+    text-transform: uppercase;
+}
+
+.navbar a:hover {
+    color: var(--verdigris);
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--rich-black-fogra-29);
+    color: var(--gray-web);
+    padding: 1rem 0;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  footer a:hover {
+    color: var(--verdigris);
+  }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 769px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.appointment-button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Change to a color that fits your site's theme */
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+    display: inline-block; /* Allows for width and height if needed */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.appointment-button:hover, .appointment-button:focus {
+    background-color: #45a049; /* Slightly darker shade on hover */
+    transform: translateY(-2px); /* Small lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Larger shadow when hovered */
+}
+
+/* Add a media query if you need responsiveness */
+@media (max-width: 768px) {
+    .appointment-button {
+        padding: 8px 16px;
+        font-size: smaller; /* Smaller text on smaller screens */
+    }
+}

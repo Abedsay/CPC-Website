@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor's Weekly Calendar</title>
+<link rel="stylesheet" href="../css/sc.css">
+</head>
+<body>
+
+<div id="calendar-container">
+  <header>
+    <h1>Doctor's Weekly Calendar</h1>
+    <h2 id="month-year">April 2024</h2>
+  </header>
+  <table id="calendar">
+    <thead>
+      <tr>
+        <th>Time/Date</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const monthYear = document.getElementById('month-year');
+  const tbody = document.querySelector('#calendar tbody');
+
+  monthYear.textContent = '<April 2024>';
+
+  const clinicHours = { start: 9, end: 17 };
+  const breakTime = { start: 12, end: 13 };
+
+  const appointments = [
+    { day: 1, hour: 10, name: "John Doe", reason: "Checkup" },
+    { day: 2, hour: 14, name: "Jane Smith", reason: "Dental Cleaning" },
+    { day: 3, hour: 11, name: "Alice Johnson", reason: "Physical Examination" },
+  ];
+
+  for (let hour = clinicHours.start; hour <= clinicHours.end; hour++) {
+    const row = document.createElement('tr');
+    const timeCell = document.createElement('td');
+    timeCell.textContent = `${hour}:00`;
+    timeCell.classList.add('time-label');
+    row.appendChild(timeCell); 
+
+    for (let day = 1; day <= 5; day++) {
+      const cell = document.createElement('td');
+      const appointmentCard = document.createElement('div');
+      appointmentCard.classList.add('appointment-card');
+
+      if (hour >= breakTime.start && hour < breakTime.end) {
+        const breakDiv = document.createElement('div');
+        breakDiv.textContent = 'Break';
+        appointmentCard.appendChild(breakDiv);
+        appointmentCard.classList.add('break-time');
+      } else {
+        const appointment = appointments.find(a => a.day === day && a.hour === hour);
+        if (appointment) {
+          const patientName = document.createElement('div');
+          patientName.classList.add('patient-name');
+          patientName.textContent = appointment.name;
+          const appointmentReason = document.createElement('div');
+          appointmentReason.classList.add('appointment-reason');
+          appointmentReason.textContent = appointment.reason;
+          appointmentCard.appendChild(patientName);
+          appointmentCard.appendChild(appointmentReason);
+          appointmentCard.classList.add('booked');
+          appointmentCard.style.backgroundColor = '#0053a7';
+    appointmentCard.style.color = '#fff';
+
+    
+        }
+      }
+
+      cell.appendChild(appointmentCard);
+      row.appendChild(cell);
+    }
+
+    tbody.appendChild(row);
+  }
+});
+
+</script>
+</body>
+</html>
